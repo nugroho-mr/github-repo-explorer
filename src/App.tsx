@@ -1,8 +1,16 @@
+import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+
+import { GithubSearch } from "./GithubSearch";
+
 function App() {
+  const queryClient = new QueryClient();
+
   return (
-    <div>
-      <h1 className="text-5xl font-bold">Hello Vite + React + Tailwind CSS!</h1>
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <GithubSearch />
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
   );
 }
 

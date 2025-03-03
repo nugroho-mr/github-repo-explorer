@@ -1,6 +1,9 @@
 import axios from "axios";
 
-export const fetchGithubApi = (endpoint: string, params: unknown) => {
+export const fetchGithubApi = (
+  endpoint: string,
+  params: { [key: string]: unknown }
+) => {
   return axios.get(`https://api.github.com/${endpoint}`, {
     params,
     headers: {
